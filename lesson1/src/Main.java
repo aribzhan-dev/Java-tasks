@@ -106,7 +106,10 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        while (true) {
+
+        System.out.print("Do you want to continue  (yes/no) --->");
+        String answer = scanner.next();
+        while (answer.equalsIgnoreCase("no")) {
             System.out.print("Enter a first number --->");
             int a = scanner.nextInt();
             System.out.print("Enter a second number --->");
@@ -114,41 +117,42 @@ public class Main {
             System.out.print("Choose operation (+, -, *, /) --->");
             char c = scanner.next().charAt(0);
 
-            switch (c){
-                case '+':
-                    int plus = a + b;
-                    System.out.println(a + "+" + b + "=" + plus);
-                    break;
-                case '-':
-                    int minus  = a - b;
-                    System.out.println(a + "-" + b + "=" + minus);
-                    break;
-                case '*':
-                    int multiply = a * b;
-                    System.out.println(a + "-" + b + "=" + multiply);
-                    break;
-                case '/':
-                    if (a == 0 || b == 0){
-                        System.out.println("We can't divide for 0");
-                        break;
-                    }else {
-                        int divide = a / b;
-                        System.out.println(a + "-" + b + "=" + divide);
-                        break;
-                    }
+
+            if (c == '+') {
+                int plus = a + b;
+                System.out.println(a + "+" + b + "=" + plus);
+            }
+            else if (c == '-'){
+                int minus  = a - b;
+                System.out.println(a + "-" + b + "=" + minus);
+            }
+            else if (c == '*') {
+                int multiply = a * b;
+                System.out.println(a + "*" + b + "=" + multiply);
+            }
+            else if (c == '/'){
+                if (a == 0 || b == 0){
+                    System.out.println("We can't divide for 0");
+                }else{
+                    float divide = a / b;
+                    System.out.println(a + "/" + b + "=" + divide);
+                }
 
             }
 
 
-            System.out.print("Do you want to continue  (yes/no) --->");
-            String answer = scanner.next();
+
 
             if (answer.equalsIgnoreCase("no")) {
                 System.out.println("Game Over!!");
                 break;
             }
-
-
+            else if (answer.equalsIgnoreCase("yes")){
+                continue;
+            } else{
+                System.out.println("Choose right option!!");
+                break;
+            }
         }
 
     }
