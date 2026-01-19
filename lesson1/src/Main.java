@@ -422,7 +422,7 @@ public class Main {
         // B) switch
 
         // task 1
-
+        //       System.out.print("Enter a day number");
 //        int day = scanner.nextInt();
 //
 //        switch (day) {
@@ -437,7 +437,7 @@ public class Main {
 //        }
 
         // task 2
-
+        //       System.out.print("Enter a month number");
 //        int month = scanner.nextInt();
 //
 //        switch (month) {
@@ -457,7 +457,7 @@ public class Main {
 //        }
 
         // task 3
-
+        //       System.out.print("Enter a number");
 //        int mark = scanner.nextInt();
 //
 //        switch (mark) {
@@ -485,6 +485,7 @@ public class Main {
 //        }
 
         // task 5
+        //       System.out.print("Enter a simbol");
 //        char ch = scanner.next().toLowerCase().charAt(0);
 //
 //        switch (ch) {
@@ -494,6 +495,7 @@ public class Main {
 
 
         // task 6
+        //       System.out.print("Enter a number");
 //        int n = scanner.nextInt();
 //
 //        switch (n) {
@@ -512,6 +514,7 @@ public class Main {
 
 
         // task 7
+        //       System.out.print("Enter a number");
 //        int dir = scanner.nextInt();
 //
 //        switch (dir) {
@@ -534,7 +537,7 @@ public class Main {
 //        }
 
         // task 9
-
+        //       System.out.print("Enter a grade");
 //        char grade = scanner.next().toUpperCase().charAt(0);
 //
 //        switch (grade) {
@@ -547,7 +550,7 @@ public class Main {
 //        }
 
         // task 10
-
+        //       System.out.print("Enter a month number");
 //        int m = scanner.nextInt();
 //
 //        switch (m) {
@@ -557,6 +560,281 @@ public class Main {
 //            case 9,10,11 -> System.out.println("Autumn");
 //            default -> System.out.println("Invalid month");
 //        }
+
+
+        // C) while
+
+        // task 1
+        //       System.out.print("Enter a number");
+//        int n = scanner.nextInt();
+//        int i = 1;
+//
+//        while (i <= n) {
+//            System.out.print(i + " ");
+//            i++;
+//        }
+
+
+        // task 2
+        //       System.out.print("Enter a number");
+//        int n = scanner.nextInt();
+//
+//        while (n >= 1) {
+//            System.out.print(n + " ");
+//            n--;
+//        }
+
+        // task 3
+        //       System.out.print("Enter a number");
+//        int n = scanner.nextInt();
+//        int sum = 0;
+//        int i = 1;
+//
+//        while (i <= n) {
+//            sum += i;
+//            i++;
+//        }
+//
+//        System.out.println(sum);
+
+
+        // task 4
+        //       System.out.print("Enter a number");
+//        int n = scanner.nextInt();
+//        int count = 0;
+//
+//        while (n != 0) {
+//            count++;
+//            n /= 10;
+//        }
+//
+//        System.out.println(count);
+
+
+        // task 5
+        //       System.out.print("Enter a number");
+//        int n = scanner.nextInt();
+//        int sum = 0;
+//
+//        while (n != 0) {
+//            sum += n % 10;
+//            n /= 10;
+//        }
+//
+//        System.out.println(sum);
+
+
+        // task 6
+ //       System.out.print("Enter a number");
+//        int n = scanner.nextInt();
+//        int i = 1;
+//
+//        while (i <= n) {
+//            if (n % i == 0) {
+//                System.out.print(i + " ");
+//            }
+//            i++;
+//        }
+
+        // task 7
+        //        int sum = 0;
+//        System.out.print("Enter a number");
+//        int x = scanner.nextInt();
+//
+//        while (x != 0) {
+//            sum += x;
+//            x = scanner.nextInt();
+//        }
+//
+//        System.out.println(sum);
+
+
+        // D) do-while
+
+
+        // task 1
+
+//        String password;
+//
+//        do {
+//            System.out.print("Enter a password -- >");
+//            password = scanner.next();
+//        } while (!password.equals("java"));
+//
+//        System.out.println("Access granted");
+
+
+        // task 2
+
+//        int count = 0;
+//        int x;
+//
+//        do {
+//            System.out.print("Enter a number -- >");
+//            x = scanner.nextInt();
+//            if (x >= 0) {
+//                count++;
+//            }
+//        } while (x >= 0);
+//
+//        System.out.println(count);
+
+
+        // task 3
+
+//        int choice;
+//
+//        do {
+//            System.out.println("1) Hello");
+//            System.out.println("2) Time");
+//            System.out.println("0) Exit");
+//
+//            System.out.print("Choose a number -->");
+//            choice = scanner.nextInt();
+//
+//            switch (choice) {
+//                case 1 -> System.out.println("Hello!");
+//                case 2 -> System.out.println("Time info");
+//            }
+//        } while (choice != 0);
+
+
+
+        // task 4
+
+//        int x;
+//
+//        do {
+//            System.out.print("Enter a number -- >");
+//            x = scanner.nextInt();
+//        } while (x < 1 || x > 10);
+//
+//        System.out.println("Correct: " + x);
+
+
+        // task 5
+
+//        int secret = 7;
+//        int guess;
+//
+//        do {
+//            System.out.print("Enter your number -- >");
+//            guess = scanner.nextInt();
+//
+//            if (guess > secret) {
+//                System.out.println("Less");
+//            } else if (guess < secret) {
+//                System.out.println("More");
+//            }
+//        } while (guess != secret);
+//
+//        System.out.println("Correct!");
+
+
+
+        // E) For
+
+        // task 1
+
+//        System.out.print("Enter a number -- >");
+//        int k = scanner.nextInt();
+//
+//        for (int i = 1; i <= 10; i++) {
+//            System.out.println(k + " * " + i + " = " + (k * i));
+//        }
+
+
+        // task 2
+//        System.out.print("Enter a number -- >");
+//        int n = scanner.nextInt();
+//        long fact = 1;
+//
+//        for (int i = 1; i <= n; i++) {
+//            fact *= i;
+//        }
+//
+//        System.out.println(fact);
+
+        // task 3
+
+//        System.out.print("Enter a number -- >");
+//        int n = scanner.nextInt();
+//        int sum = 0;
+//
+//        for (int i = 1; i <= n; i++) {
+//            if (i % 2 == 0) {
+//                sum += i;
+//            }
+//        }
+//
+//        System.out.println(sum);
+
+
+        // task 4
+
+//        System.out.print("Enter a number -- >");
+//        int n = scanner.nextInt();
+//
+//        for (int i = 1; i <= n; i++) {
+//            if (i % 3 == 0) continue;
+//            System.out.print(i + " ");
+//        }
+
+
+        // task 5
+//        System.out.print("Enter a number -- >");
+//        int n = scanner.nextInt();
+//
+//        for (int i = 1; i <= n; i++) {
+//            if (i % 7 == 0) {
+//                System.out.println(i);
+//                break;
+//            }
+//        }
+
+
+        // task 6
+
+//        System.out.print("Enter a number -- >");
+//        int n = scanner.nextInt();
+//        boolean isPrime = n > 1;
+//
+//        for (int i = 2; i * i <= n; i++) {
+//            if (n % i == 0) {
+//                isPrime = false;
+//                break;
+//            }
+//        }
+//
+//        System.out.println(isPrime ? "Prime" : "Not prime");
+
+
+        // task 7
+//        System.out.print("Enter a number -- >");
+//        int n = scanner.nextInt();
+//        int a = 0, b = 1;
+//
+//        for (int i = 1; i <= n; i++) {
+//            System.out.print(a + " ");
+//            int c = a + b;
+//            a = b;
+//            b = c;
+//        }
+
+        // task 8
+        System.out.print("Enter a number -- >");
+        int n = scanner.nextInt();
+        int max = 0;
+
+        for (; n > 0; n /= 10) {
+            int d = n % 10;
+            if (d > max) max = d;
+            if (max == 9) break;
+        }
+
+        System.out.println(max);
+
+
 
 
 
