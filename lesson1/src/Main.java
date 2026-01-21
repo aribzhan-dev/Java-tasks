@@ -160,9 +160,11 @@ import java.util.Scanner;
 
 
 
-public class Main {
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
+// Practise Task 1
+
+//public class Main {
+//    public static void main(String[] args){
+//        Scanner scanner = new Scanner(System.in);
 
         // 1 task
 
@@ -830,10 +832,318 @@ public class Main {
 //        }
 //
 //        System.out.println(max);
+//    }
+//}
+
+
+
+
+
+// Practise task 2
+
+
+public class Main{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+
+        // Block 1
+
+        // Task 1
+
+//        int x = 5;
+//        System.out.println(x += 3);
+
+        // Task 2
+
+//        int x = 20;
+//        System.out.println(x -= 7);
+
+        // Task 3
+
+//        int x = 4;
+//        System.out.println(x *= 6);
+
+
+        // Task 4
+
+//        float x = 40;
+//        System.out.println(x /= 5);
+
+        // Task 5
+
+//        int x = 10;
+//        x += 5;
+//        System.out.println(x);
+//        x -= 3;
+//        System.out.println(x);
+
+
+        // Task 6
+
+//        int x = 2;
+//        x *= 3;
+//        System.out.println(x);
+//        x *= 2;
+//        System.out.println(x);
+
+        // Task 7
+        // first variant
+//        int x = 100;
+//        x /= 4;
+//        System.out.println(x);
+//        x /= 5;
+//        System.out.println(x);
+
+        // second variant
+
+//                float x = 100;
+//        x /= 4;
+//        System.out.println(x);
+//        x /= 5;
+//        System.out.println(x);
+
+
+        // Task 8
+
+//        int x = 8;
+//        x *= 2;
+//        System.out.println(x);
+//        x += x;
+//        System.out.println(x);
+
+
+        // Task 9
+
+//        int x = 6;
+//        x *= x;
+//        System.out.println(x);
+
+        // Task 10
+
+//        int x = 50;
+//        int a = x / 2;
+//        x -= a;
+//        System.out.println(x);
+
+
+        // Block 2
+
+        // Task 1
+
+//        System.out.print("Enter a x -->");
+//        float x = scanner.nextInt();
+//        float a = (float) (x * 0.1);
+//        x += a;
+//        System.out.println(x);
+
+        // Task 2
+
+//        System.out.print("Enter a x -->");
+//        float x = scanner.nextInt();
+//        float a = (float) (x * 0.25);
+//        x -= a;
+//        System.out.println(x);
+
+
+        // Task 3
+//        System.out.print("Enter a x -->");
+//        int x = scanner.nextInt();
+//        x *= 3;
+//        System.out.println(x);
+
+
+        // Task 4
+//        System.out.print("Enter a x -->");
+//        float x = scanner.nextInt();
+//        x /= 2;
+//        System.out.println(x);
+
+
+        // Task 5
+//        System.out.print("Enter your salary -->");
+//        float x = scanner.nextInt();
+//        float a = (float) (x * 0.15);
+//        x += a;
+//        System.out.println(x);
+
+
+        // Task 6
+//        System.out.print("Enter price  -->");
+//        float x = scanner.nextInt();
+//        float a = (float) (x * 0.2);
+//        x -= a;
+//        System.out.println(x);
+
+
+        // Task 7
+
+//        System.out.print("Enter a distance -->");
+//        float x = scanner.nextInt();
+//        x *= 2;
+//        x -= 5;
+//        System.out.println(x);
+
+        // Task 8
+//        System.out.print("Enter a x -->");
+//        int x = scanner.nextInt();
+//        x += 5;
+//        System.out.println(x);
+//        x *= 2;
+//        System.out.println(x);
+//        x -= 3;
+//        System.out.println(x);
+
+
+        // Task 9
+//        System.out.print("Enter a x -->");
+//        int x = scanner.nextInt();
+//        x += 4;
+//        System.out.println(x);
+//        x -= 2;
+//        System.out.println(x);
+//        x += 10;
+//        System.out.println(x);
+
+        // Task 10
+//        System.out.print("Enter a x -->");
+//        float x = scanner.nextInt();
+//        x -= x / 3;
+//        System.out.println(x);
+
+
+        // Block 3
+
+        // Task 1
+
+//        System.out.print("Enter a n -->");
+//        int n = scanner.nextInt();
+//        int sum = 0;
+//        for (int i=1; i <= n; i++){
+//            sum += i;
+//        }
+//        System.out.println(sum);
+
+        // Task 2
+
+//        System.out.print("Enter a n -->");
+//        int n = scanner.nextInt();
+//        int sum = 0;
+//        for (int i=1; i <= n; i++){
+//            if (i % 2 == 0) {
+//                sum += i;
+//            }
+//        }
+//        System.out.println(sum);
+
+        // Task 3
+
+//        System.out.print("Enter a n -->");
+//        int n = scanner.nextInt();
+//        int sum = 1;
+//        for (int i=1; i <= n; i++){
+//            sum *= i;
+//        }
+//        System.out.println(sum);
+
+        // Task 4
+
+//        int sum = 0;
+//
+//        do {
+//            System.out.print("Enter a n -- >");
+//            int n = scanner.nextInt();
+//
+//            if (n != 0){
+//                sum += n;
+//            }
+//            else{
+//                break;
+//            }
+//        } while (true);
+//
+//        System.out.println(sum);
+
+
+        // Task 5
+
+//        System.out.print("Enter a n -- >");
+//        int n = scanner.nextInt();
+//        int sum = 0;
+//        for (int i=1; i <= n+1; i++){
+//            System.out.print("enter a x -->");
+//            int x = scanner.nextInt();
+//            sum += x;
+//        }
+//        System.out.println(sum);
+
+
+        // Block 4
+
+
+        // Task 1
+//        int x = 5;
+//        x += 5;
+//        x -= 3;
+//        x *= 2;
+//        System.out.println(x);
+
+        // Task 2
+
+//        int x = 8;
+//        x -= x;
+//        System.out.println(x);
+
+        // Task 3
+//        int x = 5;
+//        x /= 2;
+//        System.out.println(x);
+
+        // Task 4
+//        int a = 5;
+//        int b = 2;
+//
+//        a += b += 3;
+//        System.out.println(a);
+
+        // Task 5
+//        int x = 10;
+//        String s = "number: ";
+//
+//        s += x;
+//        System.out.println(s);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
-
-
 
 
 
