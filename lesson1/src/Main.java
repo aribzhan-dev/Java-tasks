@@ -1348,29 +1348,44 @@ public class Main{
 
 
         // Task 5
-        System.out.print("Enter a ari -->");
-        int ari = scanner.nextInt();
-        int counter = 0;
-        int ai_number = -1;
-        for (int i=1; i <= ari; i++){
-            String ari_string = "";
-            ari_string = Integer.toString(i);
-            int ari_length = ari_string.length();
-            for (int j=0; j <= ari_length; i++) {
-                if (ari_string.charAt(j) == ari_string.charAt(ari_string.length() - ai_number)) {
-                    counter += 1;
-                    ai_number -= 1;
-                }
-            }
-        }
-        System.out.println(counter);
-
+//        System.out.print("Enter a ari --> ");
+//        int ari = scanner.nextInt();
+//
+//        int counter = 0;
+//
+//        for (int i = 1; i <= ari; i++) {
+//            String ari_string = Integer.toString(i);
+//            boolean isPal = true;
+//
+//            for (int j = 0; j < ari_string.length() / 2; j++) {
+//                if (ari_string.charAt(j) != ari_string.charAt(ari_string.length() - 1 - j)) {
+//                    isPal = false;
+//                    break;
+//                }
+//            }
+//
+//            if (isPal) {
+//                counter++;
+//            }
+//        }
+//
+//        System.out.println(counter);
 
 
 
         // Task 6
 //        System.out.print("Enter a ari -->");
+//        int ari_num= 0;
 //        int ari = scanner.nextInt();
+//        for (int i=1; i <= ari; i++){
+//            int ari_sq = (int) Math.pow(2, i);
+//            if (ari_sq <= ari){
+//                if (ari_sq >= ari_num){
+//                    ari_num = ari_sq;
+//                }
+//            }
+//        }
+//        System.out.println(ari_num);
 
 
 
