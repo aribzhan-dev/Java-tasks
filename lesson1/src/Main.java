@@ -1015,7 +1015,7 @@ public class Main{
 
         // Task 1
 
-//        System.out.print("Enter a n -->");
+//        System.out.print("Enter a ari -->");
 //        int n = scanner.nextInt();
 //        int sum = 0;
 //        for (int i=1; i <= n; i++){
@@ -1025,7 +1025,7 @@ public class Main{
 
         // Task 2
 
-//        System.out.print("Enter a n -->");
+//        System.out.print("Enter a ari -->");
 //        int n = scanner.nextInt();
 //        int sum = 0;
 //        for (int i=1; i <= n; i++){
@@ -1037,7 +1037,7 @@ public class Main{
 
         // Task 3
 
-//        System.out.print("Enter a n -->");
+//        System.out.print("Enter a ari -->");
 //        int n = scanner.nextInt();
 //        int sum = 1;
 //        for (int i=1; i <= n; i++){
@@ -1050,7 +1050,7 @@ public class Main{
 //        int sum = 0;
 //
 //        do {
-//            System.out.print("Enter a n -- >");
+//            System.out.print("Enter a ari -- >");
 //            int n = scanner.nextInt();
 //
 //            if (n != 0){
@@ -1066,7 +1066,7 @@ public class Main{
 
         // Task 5
 
-//        System.out.print("Enter a n -- >");
+//        System.out.print("Enter a ari -- >");
 //        int n = scanner.nextInt();
 //        int sum = 0;
 //        for (int i=1; i <= n+1; i++){
@@ -1118,8 +1118,259 @@ public class Main{
 
 
 
+        // Practise task 3
 
 
+        // Block 1
+
+        // Task 1
+
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//        for (int i=1; i <= ari; i++){
+//            System.out.println(i*i);
+//        }
+
+
+        // Task 2
+
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//        int sum = 0;
+//
+//        for (int i=1; i <= ari; i++){
+//            if (i % 3 == 0 || i % 5 == 0){
+//                sum += i;
+//            }
+//        }
+//        System.out.println(sum);
+
+
+        // Task 3
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//
+//        int sum = 1;
+//
+//        for (int i=1; i <= ari; i++) {
+//            if (i % 2 != 0) {
+//                sum *= i;
+//            }
+//        }
+//        System.out.println(sum);
+
+
+        // Task 4
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//
+//        int sum_even = 0;
+//        int sum_odd = 0;
+//
+//        for (int i=1; i <= ari; i++){
+//            if (i % 2 == 0){
+//                sum_even += i;
+//            } else {
+//                sum_odd += i;
+//            }
+//
+//        }
+//        System.out.println((sum_even-sum_odd) + "   " + (sum_odd-sum_even));
+
+
+        // Task 5
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//        int counter = 0;
+//
+//        for (int i=1; i <= ari; i++){
+//            if (ari % i == 0){
+//                counter += 1;
+//            }
+//        }
+//        System.out.println(counter);
+
+
+        // Task 6
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//        int sum = 0;
+//
+//        for (int i=1; i < ari; i++){
+//            if (ari % i == 0){
+//                sum += i;
+//            }
+//        }
+//        if (sum == ari){
+//            System.out.println("perfect number");
+//        } else {
+//            System.out.println("unperfect number");
+//        }
+
+        // Task 7
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//
+//        int sum = 0;
+//
+//        for (int i = 2; i * i <= ari; i++) {
+//            if (ari % i == 0) {
+//                sum += i;
+//                while (ari % i == 0) {
+//                    ari /= i;
+//                }
+//            }
+//        }
+//        if (ari > 1) {
+//            sum += ari;
+//        }
+//
+//        System.out.println(sum);
+
+
+
+        // Task 8
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//
+//        int biggest_d = 1;
+//
+//        for (int i=1; i < ari; i++){
+//            if (ari % i == 0){
+//                if (biggest_d < i) {
+//                    biggest_d = i;
+//                }
+//            }
+//        }
+//        System.out.println(biggest_d);
+
+
+        // Task 9
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//
+//        int sum = 0;
+//        for (int i = 1; i <= ari; i++) {
+//            int ari_x = i;
+//            while (ari_x > 0) {
+//                sum += ari_x % 10;
+//                ari_x /= 10;
+//            }
+//        }
+//
+//        System.out.println(sum);
+
+
+
+        // Task 10
+
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//        int counter = 0;
+//        for (int i=1; i <= ari; i++){
+//            if (i == 7 || i % 10 == 7 || i / 10 == 7){
+//                counter += 1;
+//            }
+//        }
+//        System.out.println(counter);
+
+
+        // Block 2
+
+        // Task 1
+
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//        for (int i=1; i <= ari; i++){
+//            if (i % 4 == 0){
+//                continue;
+//            }else if (i % 17 == 0){
+//                break;
+//            }else {
+//                System.out.println(i);
+//            }
+//
+//        }
+
+
+        // Task 2
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//
+//        for (int i=2; i <= ari; i++){
+//            int counter = 0;
+//            for (int j=2; j <= i; j++){
+//                if (i % j == 0){
+//                    counter += 1;
+//                }
+//            }
+//            if (counter <= 1){
+//                System.out.println(i);
+//            }
+//
+//        }
+
+
+        // Task 3
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//        for (int i = 1; i <= ari; i++) {
+//            int ari_x = i;
+//            int sum = 0;
+//            while (ari_x > 0) {
+//                sum += ari_x % 10;
+//                ari_x /= 10;
+//            }
+//            if (sum > 10){
+//                System.out.println(i);
+//                break;
+//            }else {
+//                System.out.println("In this number we don't have");
+//            }
+//        }
+
+
+        // Task 4
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//        for (int i=1; i <= ari; i++){
+//            int counter = 0;
+//            for (int j=1; j <= i; j++){
+//                if (i % j == 0){
+//                    counter += 1;
+//                }
+//                System.out.println(j);
+//            }
+//            if (counter == 3){
+//                System.out.println(i);
+//            }
+//        }
+
+
+        // Task 5
+        System.out.print("Enter a ari -->");
+        int ari = scanner.nextInt();
+        int counter = 0;
+        int ai_number = -1;
+        for (int i=1; i <= ari; i++){
+            String ari_string = "";
+            ari_string = Integer.toString(i);
+            int ari_length = ari_string.length();
+            for (int j=0; j <= ari_length; i++) {
+                if (ari_string.charAt(j) == ari_string.charAt(ari_string.length() - ai_number)) {
+                    counter += 1;
+                    ai_number -= 1;
+                }
+            }
+        }
+        System.out.println(counter);
+
+
+
+
+        // Task 6
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
 
 
 
