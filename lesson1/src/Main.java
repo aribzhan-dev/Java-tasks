@@ -1483,7 +1483,165 @@ public class Main{
 
 
 
+        // Block 3
 
+        // Task 1
+
+
+//        for (int i = 1; i <= 10; i++) {
+//            for (int j = 1; j <= 10; j++) {
+//                int result = i * j;
+//                if (result <= 50) {
+//                    System.out.print(i + " * " + " = " + result + "\t");
+//                }
+//            }
+//            System.out.println();
+//        }
+
+
+        // Task 2
+
+//        System.out.print("Enter a ari --> ");
+//        int ari = scanner.nextInt();
+//
+//        for (int i = 0; i < ari; i++) {
+//            for (int j = 0; j < ari; j++) {
+//                if (i == j) {
+//                    System.out.print("# ");
+//                } else {
+//                    System.out.print("* ");
+//                }
+//            }
+//            System.out.println();
+//        }
+
+
+
+        // Task 3
+
+//        System.out.print("Enter a ari  --> ");
+//        int ari = scanner.nextInt();
+//
+//        for (int i = 1; i <= ari; i++) {
+//            for (int j = 1; j <= i; j++) {
+//                System.out.print(j + " ");
+//            }
+//            System.out.println();
+//        }
+
+
+        // Task 4
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//
+//        for (int i = 1; i <= ari; i++) {
+//            for (int j = 1; j <= i; j++) {
+//                System.out.print(i + " ");
+//            }
+//            System.out.println();
+//        }
+
+
+        // Task 5
+
+//        System.out.print("Enter a ari --> ");
+//        int ari = scanner.nextInt();
+//
+//        for (int i = 0; i < ari; i++) {
+//            for (int c = 0; c < ari; c++) {
+//                if ((i + c) % 2 == 0) {
+//                    System.out.print("# ");
+//                } else {
+//                    System.out.print(". ");
+//                }
+//            }
+//            System.out.println();
+//        }
+
+
+        // Task 6
+
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//
+//        for (int i = 1; i <= ari; i++) {
+//            for (int j = 1; j <= ari; j++) {
+//                System.out.print((i + j) + " ");
+//            }
+//            System.out.println();
+//        }
+
+
+        // Task 7
+
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//
+//        int pairTotal = 0;
+//
+//        for (int first = 1; first <= ari; first++) {
+//            for (int second = first + 1; second <= ari; second++) {
+//                if ((first + second) % 3 == 0) {
+//                    pairTotal++;
+//                }
+//            }
+//        }
+//
+//        System.out.println(pairTotal);
+
+
+
+        // Task 8
+
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//
+//        for (int i = 1; i <= ari; i++) {
+//            for (int j = 1; j <= ari; j++) {
+//                if (i != j) {
+//                    System.out.println(i + " " + j);
+//                }
+//            }
+//        }
+
+
+        // Task 9
+
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//        int counter = 0;
+//
+//        for (int i = 100; i <= 999; i++) {
+//            int hundreds = i / 100;
+//            int tens = (i / 10) % 10;
+//            int ones = i % 10;
+//
+//            if (hundreds + tens + ones == ari) {
+//                counter++;
+//            }
+//        }
+//
+//        System.out.println(counter);
+
+
+
+        // Task 10
+
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//
+//        int counter = 0;
+//
+//        for (int x = 1; x <= ari; x++) {
+//            for (int y = x + 1; y <= ari; y++) {
+//                for (int z = y + 1; z <= ari; z++) {
+//                    if ((x + y + z) % 5 == 0) {
+//                        counter++;
+//                    }
+//                }
+//            }
+//        }
+//        System.out.println(counter);
 
 
 
