@@ -1363,7 +1363,6 @@ public class Main{
 //                    break;
 //                }
 //            }
-//
 //            if (isPal) {
 //                counter++;
 //            }
@@ -1375,8 +1374,8 @@ public class Main{
 
         // Task 6
 //        System.out.print("Enter a ari -->");
-//        int ari_num= 0;
 //        int ari = scanner.nextInt();
+//        int ari_num= 0;
 //        for (int i=1; i <= ari; i++){
 //            int ari_sq = (int) Math.pow(2, i);
 //            if (ari_sq <= ari){
@@ -1386,6 +1385,119 @@ public class Main{
 //            }
 //        }
 //        System.out.println(ari_num);
+
+
+
+        // Task 7
+
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//        for (int i = 1; i <= ari; i++) {
+//            boolean foundAsSum = false;
+//
+//            for (int j = 0; j * j <= i; j++) {
+//                for (int g = 0; g * g <= i; g++) {
+//                    if (j * j + g * g == i) {
+//                        foundAsSum = true;
+//                    }
+//                }
+//            }
+//            if (foundAsSum) {
+//                System.out.println(i);
+//            }
+//        }
+
+
+
+        // Task 8
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//
+//        int counter = 0;
+//        for (int ar=1; ar <= ari; ar++) {
+//            String ari_string = Integer.toString(ar);
+//            int ari_sum = 0;
+//            for (int i = 0; i < ari_string.length(); i++) {
+//                int ari_int = ari_string.charAt(i) - '0';
+//                ari_sum += ari_int;
+//            }
+//
+//            if (ari_sum > 1) {
+//                int for_counter = 0;
+//                for (int j = 2; j <= ari_sum; j++) {
+//                    if (ari_sum % j == 0) {
+//                        for_counter++;
+//                    }
+//                }
+//                if (for_counter == 1) {
+//                    counter++;
+//                }
+//            }
+//        }
+//
+//        System.out.println(counter);
+
+
+        // Task 9
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//
+//        for (int i = 1; i <= ari; i++) {
+//            int tmpCheck = i;
+//            boolean hasFiveDigit = false;
+//
+//            while (tmpCheck > 0) {
+//                if (tmpCheck % 10 == 5) {
+//                    hasFiveDigit = true;
+//                }
+//                tmpCheck /= 10;
+//            }
+//            if (!hasFiveDigit) {
+//                System.out.println(i);
+//            }
+//        }
+
+
+        // Task 10
+
+//        System.out.print("Enter a ari -->");
+//        int ari = scanner.nextInt();
+//        int counter = 0;
+//
+//        for (int i = 1; i <= ari; i++) {
+//            int copyNum = i;
+//            int sumDigits = 0;
+//
+//            while (copyNum > 0) {
+//                sumDigits += copyNum % 10;
+//                copyNum /= 10;
+//            }
+//            if (sumDigits != 0 && i % sumDigits == 0) {
+//                counter++;
+//            }
+//        }
+//
+//        System.out.println(counter);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
