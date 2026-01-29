@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 //public class Main {
 //
@@ -1642,6 +1643,41 @@ public class Main{
 //            }
 //        }
 //        System.out.println(counter);
+
+
+
+
+
+
+
+        // Practic task 29.01.26
+
+
+
+        // Block 1
+
+
+        // Task 1
+
+
+        System.out.print("Enter a n -- >");
+        int n = scanner.nextInt();
+        System.out.print("Enter a k -- >");
+        int k = scanner.nextInt();
+        for (int i=0; i<n; i++){
+            ArrayList<String> row = new ArrayList<String>();
+            for (int j=0; j<n; j++){
+                int block = (i / k + j / k) % 2;
+                if (block == 0){
+                    row.add("#");
+                }else {
+                    row.add(".");
+                }
+            }
+            System.out.println(String.join("", row));
+        }
+
+
 
 
 
