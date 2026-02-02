@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Stack;
 
 //public class Main {
 //
@@ -1660,60 +1661,95 @@ public class Main{
         // Task 1
 
 
-        System.out.print("Enter a n -- >");
-        int n = scanner.nextInt();
-        System.out.print("Enter a k -- >");
-        int k = scanner.nextInt();
-        for (int i=0; i<n; i++){
-            ArrayList<String> row = new ArrayList<String>();
-            for (int j=0; j<n; j++){
-                int block = (i / k + j / k) % 2;
-                if (block == 0){
-                    row.add("#");
-                }else {
-                    row.add(".");
-                }
+//        System.out.print("Enter a n -- >");
+//        int n = scanner.nextInt();
+//        System.out.print("Enter a k -- >");
+//        int k = scanner.nextInt();
+//        for (int i=0; i<n; i++){
+//            ArrayList<String> row = new ArrayList<String>();
+//            for (int j=0; j<n; j++){
+//                int block = (i / k + j / k) % 2;
+//                if (block == 0){
+//                    row.add("#");
+//                }else {
+//                    row.add(".");
+//                }
+//            }
+//            System.out.println(String.join("", row));
+//        }
+
+
+        // Task 2
+
+
+
+
+        // block 3
+        // task 2
+
+
+
+        System.out.println(calculateUniqueLength(2, 3, 2, 7));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+    // task 3 block 2
+
+    public static int calculateUniqueLength(int x, int a,
+                                            int b, int m){
+        int i = 0;
+        int x2 = x;
+        int x4 = x;
+        do {
+            x2 = (a * x2 + b) % m;
+            x4 = (a * x4 + b) % m;
+            x4 = (a * x4 + b) % m;
+            i++;
+            if (x2 == x4) {
+                break;
             }
-            System.out.println(String.join("", row));
-        }
+        } while (true);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return i;
     }
 }
 
