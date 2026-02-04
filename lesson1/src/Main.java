@@ -1787,6 +1787,53 @@ public class Main{
 //        }
 
 
+        // task 4
+
+//        int n = 30;
+//        int argmax=1;
+//        int max=0;
+//        for (int i=1; i <= n; i++){
+//            int sum_i = 0;
+//            for (int j=1; j <= i; j++){
+//                if (i % j == 0){
+//                    sum_i += j;
+//                }
+//            }
+//            if (sum_i > max){
+//                max = sum_i;
+//                argmax = i;
+//            }
+//        }
+//
+//        System.out.println(argmax);
+//        System.out.println(max);
+
+
+
+        // task 5
+
+//        int n = 5;
+//        int argmax = 1;
+//        int max = 0;
+//        for (int i=1; i<=n; i++){
+//            int counter = 0;
+//            for (int j=0; j*j <= i; j++){
+//                int b = i - (j*j);
+//                b = (int) Math.sqrt(b);
+//                if ((b*b) + (j*j) == i){
+//                    counter += 1;
+//                }
+//            }
+//            if (counter > max){
+//                max = counter;
+//                argmax = i;
+//            }
+//
+//        }
+//
+//        System.out.println(argmax);
+
+
 
 
 
