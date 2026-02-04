@@ -1687,6 +1687,34 @@ public class Main{
 
 
         // block 3
+        // task 1
+
+        String s = "ababab";
+        int len_s = s.length();
+        int mix_len = 0;
+        for (int k=1; k <= len_s; k++){
+            if (len_s % k == 0){
+                int k_counter = 0;
+                for(int i=k; i < len_s; i++){
+                    if(s.charAt(i) == s.charAt(i % k)){
+                        k_counter += 1;
+
+                    }
+
+                }
+                if(k_counter == len_s-k){
+                    mix_len = k;
+                    break;
+                }
+            }
+        }
+        if (mix_len == 0){
+            System.out.println(len_s);
+        }else{
+            System.out.println(mix_len);
+        }
+
+
         // task 2
 
 //        System.out.println(calculateUniqueLength(2, 3, 2, 7));
@@ -1697,27 +1725,32 @@ public class Main{
         // block 2
 
         // task 1
-        int n = 200;
-        ArrayList<BigInteger> facSum = new ArrayList<>();
+//        int n = 200;
+//        ArrayList<BigInteger> facSum = new ArrayList<>();
+//
+//        for (int i = 1; i <= n; i++) {
+//            BigInteger x = factorial(i);
+//            BigInteger sum = BigInteger.ZERO;
+//
+//            while (x.compareTo(BigInteger.ZERO) > 0) {
+//                sum = sum.add(x.mod(BigInteger.TEN));
+//                x = x.divide(BigInteger.TEN);
+//            }
+//
+//            facSum.add(sum);
+//        }
+//
+//        BigInteger total = BigInteger.ZERO;
+//        for (BigInteger val : facSum) {
+//            total = total.add(val);
+//        }
+//
+//        System.out.println(total);
 
-        for (int i = 1; i <= n; i++) {
-            BigInteger x = factorial(i);
-            BigInteger sum = BigInteger.ZERO;
 
-            while (x.compareTo(BigInteger.ZERO) > 0) {
-                sum = sum.add(x.mod(BigInteger.TEN));
-                x = x.divide(BigInteger.TEN);
-            }
 
-            facSum.add(sum);
-        }
 
-        BigInteger total = BigInteger.ZERO;
-        for (BigInteger val : facSum) {
-            total = total.add(val);
-        }
 
-        System.out.println(total);
 
 
 
