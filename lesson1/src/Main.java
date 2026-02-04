@@ -1689,30 +1689,30 @@ public class Main{
         // block 3
         // task 1
 
-        String s = "ababab";
-        int len_s = s.length();
-        int mix_len = 0;
-        for (int k=1; k <= len_s; k++){
-            if (len_s % k == 0){
-                int k_counter = 0;
-                for(int i=k; i < len_s; i++){
-                    if(s.charAt(i) == s.charAt(i % k)){
-                        k_counter += 1;
-
-                    }
-
-                }
-                if(k_counter == len_s-k){
-                    mix_len = k;
-                    break;
-                }
-            }
-        }
-        if (mix_len == 0){
-            System.out.println(len_s);
-        }else{
-            System.out.println(mix_len);
-        }
+//        String s = "ababab";
+//        int len_s = s.length();
+//        int mix_len = 0;
+//        for (int k=1; k <= len_s; k++){
+//            if (len_s % k == 0){
+//                int k_counter = 0;
+//                for(int i=k; i < len_s; i++){
+//                    if(s.charAt(i) == s.charAt(i % k)){
+//                        k_counter += 1;
+//
+//                    }
+//
+//                }
+//                if(k_counter == len_s-k){
+//                    mix_len = k;
+//                    break;
+//                }
+//            }
+//        }
+//        if (mix_len == 0){
+//            System.out.println(len_s);
+//        }else{
+//            System.out.println(mix_len);
+//        }
 
 
         // task 2
@@ -1746,6 +1746,45 @@ public class Main{
 //        }
 //
 //        System.out.println(total);
+
+
+        // task 2
+
+//        int n = 153;
+//        for (int i=1; i <= n; i++){
+//            String str_i = Integer.toString(i);
+//            int len_i = str_i.length();
+//            int total = 0;
+//            int copy_i = i;
+//
+//            while (copy_i > 0){
+//                int mod = copy_i % 10;
+//                total += (int) Math.pow(mod, len_i);
+//                copy_i /= 10;
+//            }
+//
+//            if (total == i){
+//                System.out.println(i);
+//            }
+//        }
+
+
+
+        // task 3
+//        int n = 30;
+//        for (int i=1; i <= n; i++){
+//            boolean found = false;
+//            for (int j=2; j*j <= i; j++){
+//                if (i % (j*j) == 0){
+//                    found = true;
+//                    break;
+//                }
+//            }
+//            if (!found){
+//                System.out.println(i);
+//
+//            }
+//        }
 
 
 
