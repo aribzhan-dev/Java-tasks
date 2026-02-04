@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Stack;
+import java.math.BigInteger;
+
 
 //public class Main {
 //
@@ -1687,9 +1689,37 @@ public class Main{
         // block 3
         // task 2
 
+//        System.out.println(calculateUniqueLength(2, 3, 2, 7));
 
 
-        System.out.println(calculateUniqueLength(2, 3, 2, 7));
+
+
+        // block 2
+
+        // task 1
+        int n = 200;
+        ArrayList<BigInteger> facSum = new ArrayList<>();
+
+        for (int i = 1; i <= n; i++) {
+            BigInteger x = factorial(i);
+            BigInteger sum = BigInteger.ZERO;
+
+            while (x.compareTo(BigInteger.ZERO) > 0) {
+                sum = sum.add(x.mod(BigInteger.TEN));
+                x = x.divide(BigInteger.TEN);
+            }
+
+            facSum.add(sum);
+        }
+
+        BigInteger total = BigInteger.ZERO;
+        for (BigInteger val : facSum) {
+            total = total.add(val);
+        }
+
+        System.out.println(total);
+
+
 
 
 
@@ -1750,6 +1780,21 @@ public class Main{
         } while (true);
 
         return i;
+    }
+
+
+
+
+
+    // task 1 block 2
+    public static BigInteger factorial(int s) {
+        BigInteger f = BigInteger.ONE;
+
+        for (int i = 1; i <= s; i++) {
+            f = f.multiply(BigInteger.valueOf(i));
+        }
+
+        return f;
     }
 }
 
