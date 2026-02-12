@@ -846,8 +846,8 @@ import java.math.BigInteger;
 // Practise task 2
 
 
-public class Main{
-    public static void main(String[] args){
+public class Main {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         // Block 1
@@ -1117,11 +1117,6 @@ public class Main{
 //        System.out.println(s);
 
 
-
-
-
-
-
         // Practise task 3
 
 
@@ -1232,7 +1227,6 @@ public class Main{
 //        System.out.println(sum);
 
 
-
         // Task 8
 //        System.out.print("Enter a ari -->");
 //        int ari = scanner.nextInt();
@@ -1263,7 +1257,6 @@ public class Main{
 //        }
 //
 //        System.out.println(sum);
-
 
 
         // Task 10
@@ -1375,7 +1368,6 @@ public class Main{
 //        System.out.println(counter);
 
 
-
         // Task 6
 //        System.out.print("Enter a ari -->");
 //        int ari = scanner.nextInt();
@@ -1389,7 +1381,6 @@ public class Main{
 //            }
 //        }
 //        System.out.println(ari_num);
-
 
 
         // Task 7
@@ -1410,7 +1401,6 @@ public class Main{
 //                System.out.println(i);
 //            }
 //        }
-
 
 
         // Task 8
@@ -1484,9 +1474,6 @@ public class Main{
 //        System.out.println(counter);
 
 
-
-
-
         // Block 3
 
         // Task 1
@@ -1518,7 +1505,6 @@ public class Main{
 //            }
 //            System.out.println();
 //        }
-
 
 
         // Task 3
@@ -1594,7 +1580,6 @@ public class Main{
 //        System.out.println(pairTotal);
 
 
-
         // Task 8
 
 //        System.out.print("Enter a ari -->");
@@ -1628,7 +1613,6 @@ public class Main{
 //        System.out.println(counter);
 
 
-
         // Task 10
 
 //        System.out.print("Enter a ari -->");
@@ -1648,13 +1632,7 @@ public class Main{
 //        System.out.println(counter);
 
 
-
-
-
-
-
         // Practic task 29.01.26
-
 
 
         // Block 1
@@ -1737,7 +1715,6 @@ public class Main{
 //         }
 
 
-
         // task 4
 
 //         int a = 7;
@@ -1769,7 +1746,6 @@ public class Main{
 //         }
 
 
-
         // task 5
 
 //         int a = 20;
@@ -1781,7 +1757,6 @@ public class Main{
 //             }
 //             System.out.println();
 //         }
-
 
 
         // task 6
@@ -1813,8 +1788,7 @@ public class Main{
 //         }
 
 
-
-         // task 7
+        // task 7
 
 //         int a=20;
 //         int[][] b = new int[a][a];
@@ -1836,9 +1810,6 @@ public class Main{
 //         }
 
 
-
-
-
         // task 8
 
 //        int a = 20;
@@ -1856,10 +1827,6 @@ public class Main{
 //            }
 //            System.out.println();
 //        }
-
-
-
-
 
 
         // block 2
@@ -1909,7 +1876,6 @@ public class Main{
 //        }
 
 
-
         // task 3
 //        int n = 30;
 //        for (int i=1; i <= n; i++){
@@ -1949,7 +1915,6 @@ public class Main{
 //        System.out.println(max);
 
 
-
         // task 5
 
 //        int n = 5;
@@ -1974,43 +1939,33 @@ public class Main{
 //        System.out.println(argmax);
 
 
-
-
-
-
-
-
-
-
-
-
         // block 3
         // task 1
 
-        String s = "ababab";
-        int len_s = s.length();
-        int mix_len = 0;
-        for (int k=1; k <= len_s; k++){
-            if (len_s % k == 0){
-                int k_counter = 0;
-                for(int i=k; i < len_s; i++){
-                    if(s.charAt(i) == s.charAt(i % k)){
-                        k_counter += 1;
-
-                    }
-
-                }
-                if(k_counter == len_s-k){
-                    mix_len = k;
-                    break;
-                }
-            }
-        }
-        if (mix_len == 0){
-            System.out.println(len_s);
-        }else{
-            System.out.println(mix_len);
-        }
+//        String s = "ababab";
+//        int len_s = s.length();
+//        int mix_len = 0;
+//        for (int k=1; k <= len_s; k++){
+//            if (len_s % k == 0){
+//                int k_counter = 0;
+//                for(int i=k; i < len_s; i++){
+//                    if(s.charAt(i) == s.charAt(i % k)){
+//                        k_counter += 1;
+//
+//                    }
+//
+//                }
+//                if(k_counter == len_s-k){
+//                    mix_len = k;
+//                    break;
+//                }
+//            }
+//        }
+//        if (mix_len == 0){
+//            System.out.println(len_s);
+//        }else{
+//            System.out.println(mix_len);
+//        }
 
 
         // task 2
@@ -2018,72 +1973,40 @@ public class Main{
 //        System.out.println(calculateUniqueLength(2, 3, 2, 7));
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
     // task 3 block 2
 
-    public static int calculateUniqueLength(int x, int a,
-                                            int b, int m){
-        int i = 0;
-        int x2 = x;
-        int x4 = x;
-        do {
-            x2 = (a * x2 + b) % m;
-            x4 = (a * x4 + b) % m;
-            x4 = (a * x4 + b) % m;
-            i++;
-            if (x2 == x4) {
-                break;
-            }
-        } while (true);
-
-        return i;
-    }
-
-
-
+//    public static int calculateUniqueLength(int x, int a,
+//                                            int b, int m){
+//        int i = 0;
+//        int x2 = x;
+//        int x4 = x;
+//        do {
+//            x2 = (a * x2 + b) % m;
+//            x4 = (a * x4 + b) % m;
+//            x4 = (a * x4 + b) % m;
+//            i++;
+//            if (x2 == x4) {
+//                break;
+//            }
+//        } while (true);
+//
+//        return i;
+//    }
 
 
     // task 1 block 2
-    public static BigInteger factorial(int s) {
-        BigInteger f = BigInteger.ONE;
+//    public static BigInteger factorial(int s) {
+//        BigInteger f = BigInteger.ONE;
+//
+//        for (int i = 1; i <= s; i++) {
+//            f = f.multiply(BigInteger.valueOf(i));
+//        }
+//
+//        return f;
+//    }
 
-        for (int i = 1; i <= s; i++) {
-            f = f.multiply(BigInteger.valueOf(i));
-        }
 
-        return f;
-    }
 }
 
 
