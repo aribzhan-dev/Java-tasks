@@ -74,7 +74,39 @@ public class Main {
 
         // task 3
 
-        System.out.println(isBracketsValid("{()}"));
+//        System.out.println(isBracketsValid("{()}"));
+
+
+        // task 4
+
+//        System.out.println(area(5))
+
+
+        // tsak 5
+        int n = 10;
+        int leftPrime = 0;
+        int rightPrime = 0;
+        int c = n+1;
+        for (int x = n - 1; x >= 2; i--){
+            if(isPrime(x)){
+                leftPrime = x;
+            }
+        }
+        while (true){
+            if (isPrime(c)) {
+                rightPrime = c;
+                break;
+            }
+
+            c++;
+        }
+
+        if (n - leftPrime < (n - rightPrime) * (-1)){
+            System.out.println(leftPrime);
+        }else{
+            System.out.println(rightPrime);
+        }
+
 
 
 
@@ -139,6 +171,8 @@ public class Main {
     }
 
 
+    // bracket cheker
+
     public static boolean isBracketsValid(String brackets){
         if (brackets == null || brackets.isEmpty()){
             return true;
@@ -174,5 +208,41 @@ public class Main {
 
 
     }
+
+
+
+    // area
+
+    public static double area(int a){
+        double square = a * a;
+        return square;
+    }
+
+    public static double area(int a, int b){
+        double square = a * b;
+        return square;
+    }
+
+    public static double area(double r){
+        double square = Math.PI * r * r;
+        return square;
+    }
+
+
+    // isPrime funcsion
+
+    public static boolean isPrime(int x){
+        if(x <= 1) return false;
+        if(x == 2) return true;
+        for (int i=2; i < x; i++){
+            if (x % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
 
 }
