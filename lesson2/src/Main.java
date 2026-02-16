@@ -83,29 +83,23 @@ public class Main {
 
 
         // tsak 5
-        int n = 10;
-        int leftPrime = 0;
-        int rightPrime = 0;
-        int c = n+1;
-        for (int x = n - 1; x >= 2; i--){
-            if(isPrime(x)){
-                leftPrime = x;
-            }
-        }
-        while (true){
-            if (isPrime(c)) {
-                rightPrime = c;
-                break;
-            }
 
-            c++;
-        }
+//        System.out.println(nearestPrime(5))
 
-        if (n - leftPrime < (n - rightPrime) * (-1)){
-            System.out.println(leftPrime);
-        }else{
-            System.out.println(rightPrime);
-        }
+
+        // task 6
+
+//        System.out.println(mostFrequentChar("zznnhh"));
+
+
+        // task 7
+//        System.out.println(multiply(5, -5));
+
+
+        // task 8
+
+        System.out.println(waysToClimb(4));
+
 
 
 
@@ -240,6 +234,88 @@ public class Main {
             }
         }
         return true;
+    }
+
+
+    public static int nearestPrime(int n){
+        int leftPrime = 0;
+        int rightPrime = 0;
+        int c = n+1;
+        for (int x = n - 1; x >= 2; x--){
+            if(isPrime(x)){
+                leftPrime = x;
+                break;
+            }
+        }
+        while (true){
+            if (isPrime(c)) {
+                rightPrime = c;
+                break;
+            }
+
+            c++;
+        }
+
+        if (n - leftPrime <= rightPrime - n){
+           return leftPrime;
+        }else{
+            return rightPrime;
+        }
+    }
+
+
+    // chastota String
+
+    public static char mostFrequentChar(String s){
+        int[] count = new int[256];
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            count[c]++;
+        }
+
+
+        char maxChar = s.charAt(0);
+        int maxCount = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            if (count[c] > maxCount) {
+                maxChar = c;
+                maxCount = count[c];
+            }
+        }
+
+        return maxChar;
+    }
+
+
+    // multiply
+
+    public static int multiply(int a, int b){
+        boolean negative = (a < 0) != (b < 0);
+
+        a = Math.abs(a);
+        b = Math.abs(b);
+
+        int result = 0;
+        for (int i=0; i < b; i++){
+            result += a;
+        }
+
+        if(negative){
+            result = -result;
+        }
+
+        return result;
+    }
+
+
+    // wayToClimb
+
+    public static int waysToClimb(int n){
+        int result = (n-1) + (n-2);
+        return result;
     }
 
 
