@@ -45,6 +45,31 @@ class Rectangle{
 
 }
 
+
+
+class BankAccount {
+    private String ownerName;
+    private double balance;
+
+
+    public BankAccount(String ownerName, double balance){
+        this.ownerName = ownerName;
+        this.balance = balance;
+    }
+
+    public double deposit(double amount){
+        return balance + amount;
+    }
+
+    public double withdraw(double amount){
+        if (balance >= amount){
+            return balance - amount;
+        } else {
+            return 0.0;
+        }
+    }
+}
+
 class Main {
     public static void main(String[] args) {
 
@@ -61,11 +86,20 @@ class Main {
         );
 
 
+        BankAccount bank = new BankAccount(
+                "Aribzhna",
+                0.0
+        );
+
+
         System.out.println(student1.fullName());
         System.out.println(student1.isExcellent());
         System.out.println(rec.area());
         System.out.println(rec.perimetr());
         System.out.println(rec.isSquare());
+        System.out.println(bank.deposit(100));
+        System.out.println(bank.withdraw(110));
+
 
     }
 }
