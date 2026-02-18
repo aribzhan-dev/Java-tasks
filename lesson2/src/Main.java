@@ -322,3 +322,6 @@ public class Main {
 
 
 }
+
+
+class Animals{
