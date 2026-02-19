@@ -192,7 +192,7 @@ class DeliveryPackage{
     }
 
     public String getInfo(){
-        return id + ":" + weight + " ---- " + fromAddress + " --->" + toAddress + " status: " + status;
+        return "id: " + id + " weight: " + weight + " ---- " + fromAddress + " --->" + toAddress + " status: " + status;
     }
 
     public DeliveryStatus getStatus() {
@@ -225,7 +225,7 @@ class Delivery {
     }
 
     public String getInfo(){
-        return courier.getInfo() + " is delivering " + deliveryPackage.getInfo() + " to " + customer.getInfo();
+        return courier.getInfo() + " is delivering || " + deliveryPackage.getInfo() + " to " + customer.getInfo();
     }
 
     public DeliveryStatus getStatus() {
@@ -260,6 +260,10 @@ class DeliveryService {
 
     private List<Delivery> deliveries = new ArrayList<>();
     private DeliveryHistory history = new DeliveryHistory();
+
+    public void addDelivery(Delivery delivery){
+        deliveries.add(delivery);
+    }
 
 
     public void startDelivery(Delivery delivery){
@@ -315,19 +319,26 @@ class Main {
         );
 
         DeliveryPackage pack2 = new DeliveryPackage(
-                1,
-                3.5,
+                2,
+                5.5,
                 "Turkestan 13",
                 "Mangilik El 35"
         );
 
-        Delivery d = new Delivery(pack1, cour1, cus1);
-        d.finishDelivery();
-        d.startDelivery();
+        Delivery d1 = new Delivery(pack1, cour1, cus1);
+        Delivery d2 = new Delivery(pack2, cour1, cus1);
+        d1.startDelivery();
+        d2.finishDelivery();
+
 
         DeliveryService delSer = new DeliveryService();
+        delSer.addDelivery(d1);
         delSer.allDeliveries();
-        delSer.showHistory();
+
+        DeliveryHistory delHis = new DeliveryHistory();
+        delHis.addToHistory(d2);
+        delHis.showHistory();
+
 
 
 
