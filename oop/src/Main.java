@@ -105,22 +105,26 @@
 //}
 
 
+
+// Delivery Service
+
 import java.util.*;
 
-class Driver {
+
+class Courier {
     private String name;
     private String surname;
-    private int age;
-    private String carModel;
+    private String phone;
+    private String transportType;
     private double rating;
 
 
-    public Driver (String name, String surname, int age, String carModel,
+    public Courier (String name, String surname, String phone, String transportType,
                    double rating){
         this.name = name;
         this.surname = surname;
-        this.age = age;
-        this.carModel = carModel;
+        this.phone = phone;
+        this.transportType = transportType;
         this.rating = rating;
     }
 
@@ -130,7 +134,7 @@ class Driver {
     }
 
     public String getInfo() {
-        return name + " - " + carModel + " (" + rating + ")";
+        return name + " - " + transportType + " (" + rating + ")";
     }
 
 }
@@ -138,13 +142,15 @@ class Driver {
 class Customer {
     private String name;
     private String surname;
-    private String location;
+    private String address;
+    private String phone;
 
 
-    public Customer(String name, String surname, String location){
+    public Customer(String name, String surname, String address, String phone){
         this.name = name;
         this.surname = surname;
-        this.location = location;
+        this.address = address;
+        this.phone = phone;
     }
 
 
@@ -153,84 +159,131 @@ class Customer {
     }
 
     public String getInfo(){
-        return name + " " + location;
+        return name + " " + address + " tel:" + phone;
     }
 
 }
 
-class Trip {
-    private String startLocation;
-    private String finalLocation;
-    private double distance;
-    private double price;
-    private Driver driver;
+enum DeliveryStatus {
+    CREATED,
+    ON_THE_WAY,
+    DELIVERED
+}
+
+class DeliveryPackage{
+    private int id;
+    private double weight;
+    private String fromAddress;
+    private String toAddress;
+    private DeliveryStatus status;
+
+
+
+    public DeliveryPackage(int id, double weight, String fromAddress, String toAddress){
+        this.id = id;
+        this.weight = weight;
+        this.fromAddress = fromAddress;
+        this.toAddress = toAddress;
+        this.status = DeliveryStatus.CREATED;
+    }
+
+    public void setStatus(DeliveryStatus status){
+        this.status = status;
+    }
+
+    public String getInfo(){
+        return id + ":" + weight + " ---- " + fromAddress + " --->" + toAddress + " status: " + status;
+    }
+
+    public DeliveryStatus getStatus() {
+        return status;
+    }
+
+}
+
+
+
+class Delivery {
+    private DeliveryPackage deliveryPackage;
+    private Courier courier;
     private Customer customer;
 
-    public Trip(String startLocation, String finalLocation, double distance,                                        Driver driver, Customer customer){
-        this.startLocation = startLocation;
-        this.finalLocation = finalLocation;
-        this.distance = distance;
-        calculatePrice();
-        this.driver = driver;
+
+    public Delivery(DeliveryPackage deliveryPackage, Courier courier, Customer customer){
+        this.deliveryPackage = deliveryPackage;
+        this.courier = courier;
         this.customer = customer;
     }
 
-    public void calculatePrice(){
-        price = distance * 500;
+    public void startDelivery(){
+        deliveryPackage.setStatus(DeliveryStatus.ON_THE_WAY);
     }
 
-    public double getPrice(){
-        return price;
+    public void finishDelivery(){
+        deliveryPackage.setStatus(DeliveryStatus.DELIVERED);
+
     }
 
-
-    public String getInfo() {
-        return customer.getName() + " trip with " + driver.getInfo();
+    public String getInfo(){
+        return courier.getInfo() + " is delivering " + deliveryPackage.getInfo() + " to " + customer.getInfo();
     }
 
-    public String whereGoing(){
-        return "We are going to " + finalLocation + "from " + startLocation;
+    public DeliveryStatus getStatus() {
+        return deliveryPackage.getStatus();
     }
+
 
 }
 
 
+class DeliveryHistory{
+    private List<Delivery> history = new ArrayList<>();
 
-class TaxiService{
-    private ArrayList<Driver> drivers = new ArrayList<>();
-    private ArrayList<Trip> trips = new ArrayList<>();
 
-    public void addDriver(Driver driver){
-        drivers.add(driver);
+    public void addToHistory(Delivery delivery){
+        if(delivery.getStatus() == DeliveryStatus.DELIVERED){
+            history.add(delivery);
+        } else {
+            System.out.println("Delivery is not finished yet.");
+        }
     }
 
-    public void addTrip(Trip trip){
-        trips.add(trip);
+    public void showHistory(){
+        for (Delivery d: history){
+            System.out.println(d.getInfo());
+        }
+    }
+}
+
+
+class DeliveryService {
+
+    private List<Delivery> deliveries = new ArrayList<>();
+    private DeliveryHistory history = new DeliveryHistory();
+
+
+    public void startDelivery(Delivery delivery){
+        delivery.startDelivery();
     }
 
-    public void allDrivers(){
-        for (Driver d: drivers){
+    public void finishDelivery(Delivery delivery){
+        delivery.finishDelivery();
+        history.addToHistory(delivery);
+    }
+
+    public void allDeliveries(){
+        for(Delivery d : deliveries){
             System.out.println(d.getInfo());
         }
     }
 
-    public double totalIncome(){
-        double sum = 0;
-        for (Trip t: trips){
-            sum += t.getPrice();
-        }
-        return sum;
+    public void showHistory(){
+        history.showHistory();
     }
-
-
-    public void allTrips() {
-        for (Trip t : trips) {
-            System.out.println(t.getInfo());
-        }
-    }
-
-
 }
+
+
+
 
 
 
@@ -238,25 +291,43 @@ class TaxiService{
 class Main {
     public static void main(String[] args) {
 
-        Driver d1 = new Driver("Aribzhan", "Kamilzhanov", 21, "BMW", 4.8);
-        Driver d2 = new Driver("Zair", "Shukhratov", 21, "Mercides", 4.5);
 
-        Customer c1 = new Customer("Ais", "Ais", "Astana");
-        Customer c2 = new Customer("Ali", "Aliev", "Astana");
+        Customer cus1 = new Customer(
+                "Aribzhan",
+                "Kamilzhanov",
+                "Mangilik EL C1",
+                "+77079928009"
+        );
 
-        Trip t1 = new Trip("Mangilic el C1", "Turkestan 10", 2, d1, c1);
-        Trip t2 = new Trip("Mangilic el C2", "Turkestan 15", 2.5, d2, c2);
+        Courier cour1 = new Courier(
+                "Zair",
+                "Shukhratov",
+                "+77756270762",
+                "Car",
+                4.8
+        );
 
-        TaxiService service = new TaxiService();
-        service.addTrip(t1);
-        service.addTrip(t2);
+        DeliveryPackage pack1 = new DeliveryPackage(
+                1,
+                3.5,
+                "Turkestan 10",
+                "Mangilik El 10"
+        );
 
-        service.allTrips();
-        service.allDrivers();
-        System.out.println("Total income: " + service.totalIncome());
+        DeliveryPackage pack2 = new DeliveryPackage(
+                1,
+                3.5,
+                "Turkestan 13",
+                "Mangilik El 35"
+        );
 
+        Delivery d = new Delivery(pack1, cour1, cus1);
+        d.finishDelivery();
+        d.startDelivery();
 
-
+        DeliveryService delSer = new DeliveryService();
+        delSer.allDeliveries();
+        delSer.showHistory();
 
 
 
