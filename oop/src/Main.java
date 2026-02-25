@@ -353,6 +353,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.temporal.ChronoUnit;
 
 class Order {
     int id;
@@ -388,8 +389,8 @@ class Subscription extends Order {
     }
 
     public void recalcPrice(int dailyPrice) {
-        int days = endDate.getDayOfYear() - startDate.getDayOfYear() + 1;
-        this.price = dailyPrice * daysOfWeek.size() * days;
+        long days = ChronoUnit.DAYS.between(startDate, endDate) + 1;
+        this.price = (int)(dailyPrice * daysOfWeek.size() * days);
     }
 
     @Override
