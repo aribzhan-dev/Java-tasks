@@ -75,18 +75,18 @@ public class Interface {
 
         System.out.println("========== СИСТЕМА УВЕДОМЛЕНИЙ ==========\n");
 
-        System.out.println("--- EMAIL МЕНЕДЖЕР ---");
+        System.out.println("EMAIL МЕНЕДЖЕР");
         NotificationManager emailManager = new NotificationManager(new EmailNotification());
         emailManager.notifyUser("В ваш аккаунт вошли с нового устройства!");
         emailManager.notifyUser("Ваш пароль успешно изменён.");
         emailManager.printStats();
 
-        System.out.println("--- SMS МЕНЕДЖЕР ---");
+        System.out.println("SMS МЕНЕДЖЕР");
         NotificationManager smsManager = new NotificationManager(new SmsNotification());
         smsManager.notifyUser("Код подтверждения: 4782");
         smsManager.printStats();
 
-        System.out.println("--- PUSH МЕНЕДЖЕР ---");
+        System.out.println("PUSH МЕНЕДЖЕР");
         NotificationManager pushManager = new NotificationManager(new PushNotification());
         pushManager.notifyUser("Специальное предложение только для вас!");
         pushManager.notifyUser("Ваш заказ уже в пути.");
