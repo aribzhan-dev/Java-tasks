@@ -10,7 +10,6 @@ public class SimpleHashMap {
         return Math.abs(key.hashCode()) % table.length;
     }
 
-
     void put(String key, int value) {
         int index = hash(key);
         Node current = table[index];
@@ -39,7 +38,6 @@ public class SimpleHashMap {
             }
             current = current.next;
         }
-
         return -1;
     }
 
