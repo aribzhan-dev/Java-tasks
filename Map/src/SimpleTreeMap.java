@@ -48,7 +48,7 @@ public class SimpleTreeMap {
 
 
     void printTree() {
-        System.out.println("TreeMap (alfavit tartibida):");
+        System.out.println("TreeMap :");
         printInOrder(root);
     }
 
