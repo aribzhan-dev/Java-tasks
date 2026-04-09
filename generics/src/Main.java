@@ -1,8 +1,8 @@
 import java.util.*;
 import java.time.LocalDate;
 
-//   PART 1
-// TASK 1
+//   ЧАСТЬ 1: GENERICS (УНИВЕРСАЛЬНЫЕ ТИПЫ)
+// ЗАДАЧА 1
 
 class ApiResponse<T> {
     private final T data;
@@ -17,10 +17,12 @@ class ApiResponse<T> {
         this.success = success;
     }
 
+    // Статический метод для успешного ответа
     public static <T> ApiResponse<T> success(T data) {
-        return new ApiResponse<>(data, "OK", 200, true);
+        return new ApiResponse<>(data, "ОК", 200, true);
     }
 
+    // Статический метод для ошибки
     public static <T> ApiResponse<T> error(String message, int statusCode) {
         return new ApiResponse<>(null, message, statusCode, false);
     }
@@ -32,10 +34,10 @@ class ApiResponse<T> {
 
     @Override
     public String toString() {
-        return "ApiResponse{success=" + success
-                + ", statusCode=" + statusCode
-                + ", message='" + message + "'"
-                + ", data=" + (data != null ? data.toString() : "null")
+        return "ОтветСервера{успех=" + success
+                + ", код=" + statusCode
+                + ", сообщение='" + message + "'"
+                + ", данные=" + (data != null ? data.toString() : "пусто")
                 + "}";
     }
 }
@@ -44,7 +46,7 @@ class User {
     private final String name;
     private final int age;
     public User(String name, int age) { this.name = name; this.age = age; }
-    @Override public String toString() { return "User{name='" + name + "', age=" + age + "}"; }
+    @Override public String toString() { return "Пользователь{имя='" + name + "', возраст=" + age + "}"; }
 }
 
 class Order {
@@ -58,11 +60,11 @@ class Order {
     public String getStatus(){ return status; }
     public double getAmount(){ return amount; }
     @Override public String toString() {
-        return "Order{id=" + id + ", status='" + status + "', amount=" + amount + "}";
+        return "Заказ{id=" + id + ", статус='" + status + "', сумма=" + amount + "}";
     }
 }
 
-// TASK 2
+// ЗАДАЧА 2: Пара значений (Ключ и Значение)
 
 class Pair<K, V> {
     private K key;
@@ -75,32 +77,32 @@ class Pair<K, V> {
     public void setKey(K key)     { this.key = key; }
     public void setValue(V value) { this.value = value; }
 
-    // swap() returns a brand-new Pair with types K and V swapped
+    // swap() возвращает новую пару, где К и V поменялись местами
     public Pair<V, K> swap() {
         return new Pair<>(value, key);
     }
 
     @Override
     public String toString() {
-        return "Pair{key=" + key + ", value=" + value + "}";
+        return "Пара{ключ=" + key + ", значение=" + value + "}";
     }
 }
 
 
-// TASK 3 — Storage<T>  (universal entity container)
+// ЗАДАЧА 3: Хранилище (Storage)
 
 class Person {
     private final String name;
     public Person(String name) { this.name = name; }
     public String getName() { return name; }
-    @Override public String toString() { return "Person{'" + name + "'}"; }
+    @Override public String toString() { return "Человек{'" + name + "'}"; }
 }
 
 class Student extends Person {
     private final double gpa;
     public Student(String name, double gpa) { super(name); this.gpa = gpa; }
     public double getGpa() { return gpa; }
-    @Override public String toString() { return "Student{'" + getName() + "', gpa=" + gpa + "}"; }
+    @Override public String toString() { return "Студент{'" + getName() + "', средний_балл=" + gpa + "}"; }
 }
 
 class Storage<T> {
@@ -117,12 +119,13 @@ class Storage<T> {
         return items.isEmpty() ? null : items.get(0);
     }
 
+    // Использование Wildcards (? extends T)
     public void addAll(List<? extends T> newItems) {
         items.addAll(newItems);
     }
 }
 
-// TASK 4
+// ЗАДАЧА 4: Утилиты поиска максимума
 
 class MaxUtils {
 
@@ -132,7 +135,7 @@ class MaxUtils {
 
     public static <T extends Comparable<T>> T max(List<T> list) {
         if (list == null || list.isEmpty()) {
-            throw new IllegalArgumentException("Cannot find max of an empty list");
+            throw new IllegalArgumentException("Список пуст, невозможно найти максимум");
         }
         T result = list.get(0);
         for (T item : list) {
@@ -143,7 +146,7 @@ class MaxUtils {
 }
 
 
-// TASK 5
+// ЗАДАЧА 5: Фильтрация по условию
 
 interface Condition<T> {
     boolean test(T item);
@@ -160,7 +163,7 @@ class FilterUtils {
 }
 
 
-// TASK 6
+// ЗАДАЧА 6: Репозиторий (Имитация базы данных)
 
 interface Repository<T, ID> {
     void save(T entity);
@@ -189,7 +192,7 @@ class Product {
     public Product(String id, String name) { this.id = id; this.name = name; }
     public String getId()   { return id; }
     public String getName() { return name; }
-    @Override public String toString() { return "Product{id='" + id + "', name='" + name + "'}"; }
+    @Override public String toString() { return "Товар{id='" + id + "', название='" + name + "'}"; }
 }
 
 class ProductRepository implements Repository<Product, String> {
@@ -205,7 +208,7 @@ class ProductRepository implements Repository<Product, String> {
     @Override public void deleteById(String id) { store.remove(id); }
 }
 
-// TASK 7
+// ЗАДАЧА 7: Обработка файлов
 
 interface FileProcessor<T> {
     T parse(String line);
@@ -213,11 +216,10 @@ interface FileProcessor<T> {
 }
 
 class UserFileProcessor implements FileProcessor<User> {
-    // expected format: "Alice,30"
     @Override
     public User parse(String line) {
         if (line == null || !line.contains(",")) {
-            throw new IllegalArgumentException("Bad format: expected 'name,age', got: " + line);
+            throw new IllegalArgumentException("Неверный формат: ожидалось 'имя,возраст', получено: " + line);
         }
         String[] parts = line.split(",", 2);
         return new User(parts[0].trim(), Integer.parseInt(parts[1].trim()));
@@ -229,24 +231,7 @@ class UserFileProcessor implements FileProcessor<User> {
     }
 }
 
-class ProductFileProcessor implements FileProcessor<Product> {
-    @Override
-    public Product parse(String line) {
-        if (line == null || !line.contains(",")) {
-            throw new IllegalArgumentException("Bad format: expected 'id,name', got: " + line);
-        }
-        String[] parts = line.split(",", 2);
-        return new Product(parts[0].trim(), parts[1].trim());
-    }
-
-    @Override
-    public String format(Product p) {
-        return p.getId() + "," + p.getName();
-    }
-}
-
-
-// TASK 8
+// ЗАДАЧА 8
 
 class Cache<K, V> {
     private final int maxSize;
@@ -269,8 +254,6 @@ class Cache<K, V> {
     }
 
     public boolean containsKey(K key) { return store.containsKey(key); }
-    public void remove(K key)         { store.remove(key); }
-    public void clear()               { store.clear(); }
     public int size()                 { return store.size(); }
 
     private void removeOldest() {
@@ -279,7 +262,8 @@ class Cache<K, V> {
     }
 }
 
-// TASK 9
+// ЗАДАЧА 9
+
 interface Mapper<F, T> {
     T map(F from);
 }
@@ -287,26 +271,14 @@ interface Mapper<F, T> {
 class UserDto {
     private final String name;
     public UserDto(String name) { this.name = name; }
-    @Override public String toString() { return "UserDto{'" + name + "'}"; }
-}
-
-class ProductDto {
-    private final String name;
-    public ProductDto(String name) { this.name = name; }
-    @Override public String toString() { return "ProductDto{'" + name + "'}"; }
+    @Override public String toString() { return "UserDto{имя='" + name + "'}"; }
 }
 
 class UserMapper implements Mapper<User, UserDto> {
     @Override
     public UserDto map(User user) {
+        // Упрощенное преобразование
         return new UserDto(user.toString());
-    }
-}
-
-class ProductMapper implements Mapper<Product, ProductDto> {
-    @Override
-    public ProductDto map(Product product) {
-        return new ProductDto(product.getName());
     }
 }
 
@@ -321,7 +293,7 @@ class MapperUtils {
 }
 
 
-// TASK 10
+// ЗАДАЧА 10
 
 interface Validator<T> {
     boolean isValid(T obj);
@@ -331,29 +303,17 @@ interface Validator<T> {
 class EmailValidator implements Validator<String> {
     @Override
     public boolean isValid(String email) {
-        return email != null && email.contains("@") && email.contains(".");
+        return email != null && email.contains("@") && email.contains(".");//@.
     }
-    @Override public String getErrorMessage() { return "Invalid email address"; }
-}
-
-class AgeValidator implements Validator<Integer> {
-    @Override
-    public boolean isValid(Integer age) {
-        return age != null && age >= 0 && age <= 120;
-    }
-    @Override public String getErrorMessage() { return "Age must be between 0 and 120"; }
+    @Override public String getErrorMessage() { return "Некорректный email адрес"; }
 }
 
 class StudentValidator implements Validator<Student> {
     @Override
     public boolean isValid(Student s) {
-        return s != null
-                && s.getName() != null
-                && !s.getName().isBlank()
-                && s.getGpa() >= 0.0
-                && s.getGpa() <= 4.0;
+        return s != null && !s.getName().isBlank() && s.getGpa() >= 0.0 && s.getGpa() <= 4.0;//123456yui ';]\]\]\]\
     }
-    @Override public String getErrorMessage() { return "Student name must not be blank and GPA must be 0.0–4.0"; }
+    @Override public String getErrorMessage() { return "GPA должен быть от 0.0 до 4.0, имя не пустое"; }
 }
 
 class ValidationService<T> {
@@ -374,15 +334,12 @@ class ValidationService<T> {
     }
 }
 
-//   PART 2
+//   ЧАСТЬ 2: ITERATOR И LISTITERATOR
 
-
-
-// TASK 1
-
+// ЗАДАЧА II.1
 class Task_II_1 {
     public static void run() {
-        System.out.println("\n--- Part II Task 1: Safe removal of failing grades ---");
+        System.out.println("\n--- Задача II.1: Безопасное удаление плохих оценок ---");
         List<Integer> scores = new ArrayList<>(Arrays.asList(45, 82, 30, 91, 55, 20, 73));
 
         Iterator<Integer> it = scores.iterator();
@@ -390,187 +347,31 @@ class Task_II_1 {
             if (it.next() < 50) it.remove();
         }
 
-        System.out.println("Passing scores: " + scores); // [82, 91, 55, 73]
+        System.out.println("Проходные баллы: " + scores);
     }
 }
 
-// TASK 2
-
-class Task_II_2 {
-    public static void run() {
-        System.out.println("\n--- Part II Task 2: Comment list cleanup ---");
-        List<String> comments = new ArrayList<>(Arrays.asList(
-                "Great post!", null, "  ", "", "Thanks!", null, "Helpful!"
-        ));
-
-        Iterator<String> it = comments.iterator();
-        while (it.hasNext()) {
-            String s = it.next();
-            if (s == null || s.isBlank()) it.remove();
-        }
-
-        System.out.println("Valid comments: " + comments);
-    }
-}
-
-
-// TASK 3
-
-class Task_II_3 {
-    public static void run() {
-        System.out.println("\n--- Part II Task 3: Count orders by condition ---");
-        List<Order> orders = Arrays.asList(
-                new Order(1, "NEW",  5000),
-                new Order(2, "DONE", 15000),
-                new Order(3, "NEW",  12000),
-                new Order(4, "NEW",  800),
-                new Order(5, "DONE", 3000)
-        );
-
-        int newCount = 0, expensiveCount = 0;
-        Iterator<Order> it = orders.iterator();
-        while (it.hasNext()) {
-            Order o = it.next();
-            if ("NEW".equals(o.getStatus()))  newCount++;
-            if (o.getAmount() > 10_000)       expensiveCount++;
-        }
-
-        System.out.println("NEW orders:            " + newCount);
-        System.out.println("Orders over 10 000:    " + expensiveCount);
-    }
-}
-
-
-// TASK 4
-
-class Task_II_4 {
-    public static void run() {
-        System.out.println("\n--- Part II Task 4: Replace negative numbers with 0 ---");
-        List<Integer> nums = new ArrayList<>(Arrays.asList(3, -1, 7, -5, 0, -9, 4));
-
-        ListIterator<Integer> it = nums.listIterator();
-        while (it.hasNext()) {
-            if (it.next() < 0) it.set(0);
-        }
-
-        System.out.println("After replacement: " + nums);
-    }
-}
-
-
-// TASK 5
-
+// ЗАДАЧА II.5
 class Task_II_5 {
     public static void run() {
-        System.out.println("\n--- Part II Task 5: Insert NEEDS_ATTENTION after ERROR ---");
+        System.out.println("\n--- Задача II.5: Вставка 'НУЖНО_ВНИМАНИЕ' после ERROR ---");
         List<String> logs = new ArrayList<>(Arrays.asList(
-                "INFO  server started",
-                "ERROR null pointer at line 42",
-                "INFO  request received",
-                "ERROR timeout on DB connection",
-                "ERROR disk full"
+                "INFO  сервер запущен",
+                "ERROR ошибка в строке 42",
+                "INFO  запрос получен"
         ));
 
         ListIterator<String> it = logs.listIterator();
         while (it.hasNext()) {
             if (it.next().contains("ERROR")) {
-                it.add("NEEDS_ATTENTION"); // inserted right after the ERROR line
+                it.add(">>> НУЖНО_ВНИМАНИЕ");
             }
         }
-
         logs.forEach(System.out::println);
     }
 }
 
-
-// TASK 6
-
-class Task_II_6 {
-    public static void run() {
-        System.out.println("\n--- Part II Task 6: Bidirectional traversal ---");
-        List<String> tasks = new ArrayList<>(Arrays.asList(
-                "Buy groceries", "Call dentist", "Fix bug #17", "Write tests"
-        ));
-
-        ListIterator<String> it = tasks.listIterator();
-
-        System.out.println("Forward:");
-        while (it.hasNext()) {
-            System.out.println("  index " + it.nextIndex() + " → " + it.next());
-        }
-
-        System.out.println("Backward:");
-        while (it.hasPrevious()) {
-            System.out.println("  index " + it.previousIndex() + " ← " + it.previous());
-        }
-    }
-}
-
-
-// TASK 7
-
-class Task_II_7 {
-    public static void run() {
-        System.out.println("\n--- Part II Task 7: Remove adjacent duplicates ---");
-        List<String> list = new ArrayList<>(Arrays.asList("A", "A", "B", "B", "B", "C", "A"));
-
-        Iterator<String> it = list.iterator();
-        String prev = null;
-        while (it.hasNext()) {
-            String curr = it.next();
-            if (curr.equals(prev)) {
-                it.remove();
-            } else {
-                prev = curr;
-            }
-        }
-
-        System.out.println("Result: " + list);
-    }
-}
-
-
-// TASK 8
-
-class Task_II_8 {
-    public static void run() {
-        System.out.println("\n--- Part II Task 8: Insert 'Core' after every 'Java' ---");
-        List<String> words = new ArrayList<>(Arrays.asList(
-                "I", "love", "Java", "and", "Java", "is", "great"
-        ));
-
-        ListIterator<String> it = words.listIterator();
-        while (it.hasNext()) {
-            if ("Java".equals(it.next())) {
-                it.add("Core");
-            }
-        }
-
-        System.out.println(words);
-    }
-}
-
-// TASK 9
-class Task_II_9 {
-    public static void run() {
-        System.out.println("\n--- Part II Task 9: Remove blacklisted users ---");
-        List<String> users = new ArrayList<>(Arrays.asList(
-                "alice", "spam_bot", "bob", "troll99", "carol", "hacker123"
-        ));
-
-        Set<String> blacklist = new HashSet<>(Arrays.asList("spam_bot", "troll99", "hacker123"));
-
-        Iterator<String> it = users.iterator();
-        while (it.hasNext()) {
-            if (blacklist.contains(it.next())) it.remove();
-        }
-
-        System.out.println("Active users: " + users); // [alice, bob, carol]
-    }
-}
-
-// TASK 10
-
+// ЗАДАЧА II.10
 class BrowserHistory {
     private final List<String> history = new ArrayList<>();
     private ListIterator<String> cursor;
@@ -578,25 +379,25 @@ class BrowserHistory {
 
     public BrowserHistory(String startUrl) {
         history.add(startUrl);
-        cursor = history.listIterator(1); // cursor sits after the first element
+        cursor = history.listIterator(1);
         currentPage = startUrl;
     }
 
     public void goBack() {
         if (cursor.hasPrevious()) {
             currentPage = cursor.previous();
-            System.out.println("Back → " + currentPage);
+            System.out.println("Назад ← " + currentPage);
         } else {
-            System.out.println("Already at the beginning");
+            System.out.println("Вы в самом начале истории");
         }
     }
 
     public void goForward() {
         if (cursor.hasNext()) {
             currentPage = cursor.next();
-            System.out.println("Forward → " + currentPage);
+            System.out.println("Вперед → " + currentPage);
         } else {
-            System.out.println("Already at the latest page");
+            System.out.println("Вы на самой последней странице");
         }
     }
 
@@ -607,17 +408,17 @@ class BrowserHistory {
         }
         cursor.add(url);
         currentPage = url;
-        System.out.println("Opened → " + currentPage);
+        System.out.println("Открыто → " + currentPage);
     }
 
     public void printHistory() {
-        System.out.println("History: " + history + "  [current: " + currentPage + "]");
+        System.out.println("История: " + history + "  [сейчас на: " + currentPage + "]");
     }
 }
 
 class Task_II_10 {
     public static void run() {
-        System.out.println("\n--- Part II Task 10: Browser history ---");
+        System.out.println("\n--- Задача II.10: История браузера ---");
         BrowserHistory browser = new BrowserHistory("google.com");
         browser.openPage("github.com");
         browser.openPage("stackoverflow.com");
@@ -628,148 +429,33 @@ class Task_II_10 {
         browser.openPage("youtube.com");
 
         browser.printHistory();
-        browser.goForward();
-        browser.goBack();
     }
 }
 
-//   MAIN
-
+// ГЛАВНЫЙ КЛАСС ДЛЯ ЗАПУСКА
 public class Main {
     public static void main(String[] args) {
 
-        // ── PART I ────────────────────────────────────────────
-        System.out.println("========== PART I: GENERICS ==========");
+        System.out.println("========== ЧАСТЬ I: GENERICS (УНИВЕРСАЛЬНЫЕ ТИПЫ) ==========");
 
-        // Task 1 — ApiResponse<T>
-        System.out.println("\n--- Task 1: ApiResponse<T> ---");
-        ApiResponse<User>         userResp  = ApiResponse.success(new User("Alice", 25));
-        ApiResponse<Order>        orderResp = ApiResponse.success(new Order(7, "NEW", 4500));
-        ApiResponse<List<String>> listResp  = ApiResponse.success(Arrays.asList("apple", "banana"));
-        ApiResponse<User>         errResp   = ApiResponse.error("User not found", 404);
+        // Задача 1: Ответ от сервера
+        ApiResponse<User> userResp = ApiResponse.success(new User("Алибек", 20));
         System.out.println(userResp);
-        System.out.println(orderResp);
-        System.out.println(listResp);
-        System.out.println(errResp);
 
-        // Task 2 — Pair<K, V>
-        System.out.println("\n--- Task 2: Pair<K, V> ---");
-        Pair<Integer, String> p1 = new Pair<>(1, "admin");
-        System.out.println("Original: " + p1);
-        System.out.println("Swapped:  " + p1.swap());
+        // Задача 8: Кэш
+        Cache<String, Integer> cache = new Cache<>(2);
+        cache.put("Студент1", 90);
+        cache.put("Студент2", 80);
+        cache.put("Студент3", 100);
+        System.out.println("Есть ли Студент1 в кэше? " + cache.containsKey("Студент1"));
 
-        Pair<String, Double> p2 = new Pair<>("price", 99.99);
-        System.out.println("Original: " + p2 + "  Swapped: " + p2.swap());
+        // Задача 10: Валидация
+        EmailValidator ev = new EmailValidator();
+        System.out.println("Проверка почты 'test@mail': " + ev.isValid("test@mail"));
 
-        Pair<LocalDate, String> p3 = new Pair<>(LocalDate.of(2024, 1, 15), "deadline");
-        System.out.println("Original: " + p3 + "  Swapped: " + p3.swap());
-
-        // Task 3 — Storage<T>
-        System.out.println("\n--- Task 3: Storage<T> ---");
-        Storage<Person> storage = new Storage<>();
-        storage.add(new Person("Bob"));
-        storage.add(new Person("Carol"));
-        List<Student> students = Arrays.asList(new Student("Dave", 3.8), new Student("Eve", 3.2));
-        storage.addAll(students); // works because Student extends Person
-        System.out.println("All: " + storage.getAll());
-        System.out.println("First: " + storage.findFirst());
-        System.out.println("Size: " + storage.size());
-
-        // Task 4 — max()
-        System.out.println("\n--- Task 4: max() ---");
-        System.out.println("max(3, 7) = "                + MaxUtils.max(3, 7));
-        System.out.println("max(\"apple\",\"mango\") = " + MaxUtils.max("apple", "mango"));
-        System.out.println("max(list of dates) = "       + MaxUtils.max(
-                Arrays.asList(LocalDate.of(2023,1,1), LocalDate.of(2025,6,15), LocalDate.of(2024,3,3))
-        ));
-
-        // Task 5 — FilterUtils + Condition<T>
-        System.out.println("\n--- Task 5: FilterUtils ---");
-        List<Integer> nums = Arrays.asList(1, 5, 12, 3, 17, 8, 20);
-        System.out.println("Numbers > 10: " + FilterUtils.filter(nums, n -> n > 10));
-
-        List<String> words = Arrays.asList("hello", "world", "java", "hi");
-        System.out.println("Words with length > 4: " + FilterUtils.filter(words, w -> w.length() > 4));
-
-        List<Student> allStudents = Arrays.asList(
-                new Student("Anna", 3.9), new Student("Tim", 2.1), new Student("Lena", 3.5)
-        );
-        System.out.println("GPA >= 3.5: " + FilterUtils.filter(allStudents, s -> s.getGpa() >= 3.5));
-
-        // Task 6 — Repository<T, ID>
-        System.out.println("\n--- Task 6: Repository<T, ID> ---");
-        UserRepository    userRepo    = new UserRepository();
-        ProductRepository productRepo = new ProductRepository();
-
-        userRepo.save(new User("Alice", 25));
-        userRepo.save(new User("Bob",   30));
-        System.out.println("All users: "    + userRepo.findAll());
-        System.out.println("findById(1): "  + userRepo.findById(1));
-
-        productRepo.save(new Product("P001", "Laptop"));
-        productRepo.save(new Product("P002", "Mouse"));
-        productRepo.save(new Product("P001", "Laptop Pro"));
-        System.out.println("All products: " + productRepo.findAll());
-
-        // Task 7 — FileProcessor<T>
-        System.out.println("\n--- Task 7: FileProcessor<T> ---");
-        UserFileProcessor    ufp = new UserFileProcessor();
-        ProductFileProcessor pfp = new ProductFileProcessor();
-
-        User    parsedUser    = ufp.parse("Alice,25");
-        Product parsedProduct = pfp.parse("P003,Keyboard");
-        System.out.println("Parsed user:    " + parsedUser    + "  → formatted: " + ufp.format(parsedUser));
-        System.out.println("Parsed product: " + parsedProduct + "  → formatted: " + pfp.format(parsedProduct));
-
-        try { ufp.parse("bad-input"); }
-        catch (IllegalArgumentException e) { System.out.println("Error caught: " + e.getMessage()); }
-
-        // Task 8 — Cache<K, V>
-        System.out.println("\n--- Task 8: Cache<K, V> ---");
-        Cache<String, Integer> cache = new Cache<>(3);
-        cache.put("a", 1);
-        cache.put("b", 2);
-        cache.put("c", 3);
-        System.out.println("get(a)=" + cache.get("a") + "  size=" + cache.size());
-        cache.put("d", 4); // "a" is evicted (oldest)
-        System.out.println("After adding d — contains a? " + cache.containsKey("a")
-                + "  contains d? " + cache.containsKey("d"));
-
-        // Task 9 — Mapper<F, T>
-        System.out.println("\n--- Task 9: Mapper<F, T> ---");
-        List<User>       userList = Arrays.asList(new User("Alice", 25), new User("Bob", 30));
-        List<UserDto>    dtos     = MapperUtils.mapAll(userList, new UserMapper());
-        System.out.println("User DTOs: " + dtos);
-
-        List<Product>    productList = Arrays.asList(new Product("P1","Laptop"), new Product("P2","Phone"));
-        List<ProductDto> pdtos       = MapperUtils.mapAll(productList, new ProductMapper());
-        System.out.println("Product DTOs: " + pdtos);
-
-        // Task 10 — Validator<T>
-        System.out.println("\n--- Task 10: Validator<T> ---");
-        ValidationService<String> emailService = new ValidationService<>(
-                Collections.singletonList(new EmailValidator())
-        );
-        System.out.println("'alice@example.com' errors: " + emailService.validate("alice@example.com"));
-        System.out.println("'not-an-email' errors:       " + emailService.validate("not-an-email"));
-
-        ValidationService<Student> studentService = new ValidationService<>(
-                Collections.singletonList(new StudentValidator())
-        );
-        System.out.println("Valid student errors:   " + studentService.validate(new Student("Anna", 3.9)));
-        System.out.println("Invalid student errors: " + studentService.validate(new Student("", 5.0)));
-
-        // ── PART II ───────────────────────────────────────────
-        System.out.println("\n========== PART II: ITERATOR & LISTITERATOR ==========");
+        System.out.println("\n========== ЧАСТЬ II: ITERATOR И LISTITERATOR ==========");
         Task_II_1.run();
-        Task_II_2.run();
-        Task_II_3.run();
-        Task_II_4.run();
         Task_II_5.run();
-        Task_II_6.run();
-        Task_II_7.run();
-        Task_II_8.run();
-        Task_II_9.run();
         Task_II_10.run();
     }
 }
